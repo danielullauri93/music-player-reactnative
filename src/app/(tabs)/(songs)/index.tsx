@@ -10,9 +10,9 @@ import { trackTitleFilter } from "@/helpers/filter" // Función que filtra canci
 
 // Definimos el componente funcional `SongScreen`
 const SongScreen = () => {
-  // Llamamos al hook `useNavigationSearch` para manejar la barra de búsqueda en la navegación
+  // Llamamos al hook `useNavigationSearch` para manejar la barra de búsqueda en la navegación, useNavigationSearch es un hook personalizado definido en src/hooks/useNavigationSearch.tsx
   const search = useNavigationSearch({
-    searchBarOptions: {
+    searchBarOptions: { // Opciones de la barra de búsqueda
       placeholder: 'Find in songs', // Texto que aparece en la barra de búsqueda cuando está vacía
     }
   })

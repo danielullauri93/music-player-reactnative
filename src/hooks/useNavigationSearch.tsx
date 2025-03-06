@@ -26,12 +26,13 @@ export const useNavigationSearch = ({ searchBarOptions }: { searchBarOptions?: S
   // Creamos un estado `search` para almacenar el texto ingresado en la barra de búsqueda
   const [search, setSearch] = useState('')
 
-  // Obtenemos el objeto `navigation`, que nos permite modificar la barra de navegación
+  // Obtenemos el objeto `navigation`, que nos permite modificar la barra de navegación, useNavigation es un hook de expo-router
   const navigation = useNavigation()
 
   /**
    * Función que maneja el cambio de texto en la barra de búsqueda.
    * Extrae el texto del evento `nativeEvent` y lo guarda en el estado `search`.
+   * nativeEvent: Propiedad de los eventos de React Native que contiene información específica del evento, cual es el texto ingresado en la barra de búsqueda.
    */
   const handleOnChangeText: SearchBarProps['onChangeText'] = ({ nativeEvent: { text } }) => {
     setSearch(text)

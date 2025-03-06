@@ -15,7 +15,12 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.natsudragneel93.music-player-reactnative"
+      "bundleIdentifier": "com.natsudragneel93.music-player-reactnative",
+      "infoPlist":{
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {

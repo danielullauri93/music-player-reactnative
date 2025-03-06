@@ -4,9 +4,10 @@ import { FlatList, Text, View, FlatListProps } from 'react-native';
 import library from '@/assets/data/library.json';
 import { TrackListItem } from './TrackListItem';
 import { utilStyles } from '@/styles';
+import { Track } from 'react-native-track-player';
 
-export type TracksListProps = Partial<FlatListProps<unknown>> & {
-  tracks: any[]
+export type TracksListProps = Partial<FlatListProps<Track>> & {
+  tracks: Track[]
 }
 // FlatListProps<unknown>: Indica que esta FlatList puede contener datos de cualquier tipo (unknown).
 // Partial<...>: Convierte todas las props de FlatListProps en opcionales, es decir, el componente puede recibir cualquier combinación de props sin obligación de definir todas.
@@ -15,6 +16,11 @@ const ItemDivider = () => (
   <View style={{ ...utilStyles.itemSeparator, marginVertical: 9, marginLeft: 60 }}></View>
 )
 export const TrackList = ({ tracks, ...flatlistProps }: TracksListProps) => {
+
+  const handleTrackSelect = (track: Track) => {
+    console.log(track)
+  }
+
   return (
     <FlatList
       data={tracks}
@@ -23,10 +29,8 @@ export const TrackList = ({ tracks, ...flatlistProps }: TracksListProps) => {
       ListFooterComponent={ItemDivider}
       renderItem={({ item: track }) => (
         <TrackListItem
-          track={{
-            ...track,
-            image: track.artwork
-          }}
+          track={track}
+          onTrackSelect={handleTrackSelect}
         />
       )}
       {...flatlistProps}
